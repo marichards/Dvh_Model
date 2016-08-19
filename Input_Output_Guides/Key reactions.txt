@@ -1,0 +1,16 @@
+These are the main reactions which need results.
+
+
+EX_cpd00239(e) 	 H2S Exchange  	 3.689167	 0.000000 	 1000.000000 
+EX_cpd00048(e) 	 EX Sulfate e  	 -3.703949	 -1000.000000 	 0.000000 
+rxn08793A 	 L-Lactate dehydrogenase (menaquinone)  	 10.118044	 0.000000 	 1000.000000 
+rxn10904 	 EX ac e  	 9.272627	 0.000000 	 1000.000000 
+EX_cpd00047(e) 	 Formate Exchange  	 0.000000	 0.000000 	 1000.000000 
+EX_cpd00159(e) 	 EX L-Lactate e  	 -10.118044	 -10.118044 	 -10.118044 
+rxn14409 	 hydrogen exchange  	 0.000000	 0.000000 	 0.000000 
+rxn10929 	 EX_pyr_e  	 
+
+
+Randrom notes:
+
+Can you name rxn05938 as Pyruvate Synthase

@@ -1,0 +1,21 @@
+PS Model
+
+QMO 	 rxn11934B  lb = -1000 and ub = 1000
+
+rxn11934B	cpd11620[c] + 2.000000 cpd00193[c] + 4.000000 cpd00067[c] + cpd15499[c] 	<=>	2.000000 cpd00081[c] + cpd11621[c] + 2.000000 cpd00067[e] + cpd15500[c] + 2.000000 cpd00018[c] 	(206273 and 206274 and 206275 and 206276 and 206277)
+
+ATP phosphohydrolase (protein-secreting) 	 rxn00062   lb and ub = 2.000000 
+
+QRC 	 rxn14412   lb=-1000 ub=0.000000 
+
+bio_DvH_65gam	59.651527 cpd00001[c] + 65.175000 cpd00002[c] -> 64.996052 cpd00009[c] + 65.000000 cpd00067[c] + 65.000000 cpd00008[c] 	
+
+Exchange Reactions
+
+For EX_cpd00159(e) 	 EX L-Lactat 	 the lower bound and upper bound is is	 0.000000 	 0.000000 
+For EX_cpd00048(e) 	 EX Sulfate  	 the lower bound and upper bound is is	 -1000.000000 	 0.000000 
+For rxn14409 	 hydrogen ex 	 the lower bound and upper bound is is	 0.000000 	 0.000000 
+For rxn10904 	 EX ac e 	 the lower bound and upper bound is is	 0.000000 	 1000.000000 
+For EX_cpd00239(e) 	 H2S Exchang 	 the lower bound and upper bound is is	 0.000000 	 1000.000000 
+For EX_cpd00084(e) 	 L-Cysteine  	 the lower bound and upper bound is is	 0.000000 	 1000.000000 
+For rxn10929 	 EX_pyr_e  	 the lower bound and upper bound is is	 -5.712000 	 -5.712000 
