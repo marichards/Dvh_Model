@@ -61,10 +61,10 @@ for i = 1:length(growth_rates)
     
     % Constrain the model by the supplied growth rate and uptake rate
     model = changeRxnBounds(model,model.rxns{bio_idx},growth_rates(i),'b');
-    model = changeRxnBounds(model,up_rxn,uptake_rates(i),'b');   
+    model = changeRxnBounds(model,up_rxn,-uptake_rates(i),'b');   
     
     % Simulate the model
-    solution = optimizeCbModel(model,[],'one');%,false);
+    solution = optimizeCbModel(model,[],'one',false);
 
     % Pull out the flux of ATP and add to vector of ATP fluxes
     atp_fluxes(i) = solution.f;

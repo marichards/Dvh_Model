@@ -28,45 +28,45 @@ switch growth_condition
     
     case 'HS'
         % Rename the biomass accordingly
-        model.rxns{bio_idx} = 'bio_DvH_5gam';
+        model.rxns{bio_idx} = 'bio_DvH_2gam';
         
         % Adjust the stoichiometric coefficients for ATP hydrolysis
-        model.S(h_idx,bio_idx) = 5;       
-        model.S(atp_idx,bio_idx) = -5.174831;        
-        model.S(adp_idx,bio_idx) = 5;        
-        model.S(h2o_idx,bio_idx) = 0.345;      
-        model.S(p_idx,bio_idx) = 4.996052;
+        model.S(h_idx,bio_idx) = 1.6275;       
+        model.S(atp_idx,bio_idx) = -1.6275;        
+        model.S(adp_idx,bio_idx) = 1.6275;        
+        model.S(h2o_idx,bio_idx) = -1.6275;      
+        model.S(p_idx,bio_idx) = 1.6275;
         
     case 'LS'
         % Rename the biomass accordingly
-        model.rxns{bio_idx} = 'bio_DvH_85gam';
+        model.rxns{bio_idx} = 'bio_DvH_125gam';
         
         % Adjust the stoichiometric coefficients for ATP hydrolysis
-        model.S(h_idx,bio_idx) = 85;       
-        model.S(atp_idx,bio_idx) = -85.175;        
-        model.S(adp_idx,bio_idx) = 85;        
-        model.S(h2o_idx,bio_idx) = -79.651527;      
-        model.S(p_idx,bio_idx) = 84.996052;
+        model.S(h_idx,bio_idx) = 125.19;       
+        model.S(atp_idx,bio_idx) = -125.19;        
+        model.S(adp_idx,bio_idx) = 125.19;        
+        model.S(h2o_idx,bio_idx) = -125.19;      
+        model.S(p_idx,bio_idx) = 125.19;
         
     case 'PS'
         % Rename the biomass accordingly
-        model.rxns{bio_idx} = 'bio_DvH_65gam';
+        model.rxns{bio_idx} = 'bio_DvH_33gam';
         % Adjust the stoichiometric coefficients for ATP hydrolysis
-        model.S(h_idx,bio_idx) = 65;       
-        model.S(atp_idx,bio_idx) = -65.175;        
-        model.S(adp_idx,bio_idx) = 65;        
-        model.S(h2o_idx,bio_idx) = -59.651527;      
-        model.S(p_idx,bio_idx) = 64.996052;
+        model.S(h_idx,bio_idx) = 33.49;       
+        model.S(atp_idx,bio_idx) = -33.49;        
+        model.S(adp_idx,bio_idx) = 33.49;        
+        model.S(h2o_idx,bio_idx) = -33.49;      
+        model.S(p_idx,bio_idx) = 33.49;
         
     case 'CC'
         % Rename the biomass accordingly
-        model.rxns{bio_idx} = 'bio_DvH_115gam';
+        model.rxns{bio_idx} = 'bio_DvH_89gam';
         
         % Adjust the stoichiometric coefficients for ATP hydrolysis
-        model.S(h_idx,bio_idx) = 115;       
-        model.S(atp_idx,bio_idx) = -115.175;        
-        model.S(adp_idx,bio_idx) = 115;        
-        model.S(h2o_idx,bio_idx) = -109.651527;      
-        model.S(p_idx,bio_idx) = 114.996052;
+        model.S(h_idx,bio_idx) = 88.9125;       
+        model.S(atp_idx,bio_idx) = -88.9125;        
+        model.S(adp_idx,bio_idx) = 88.9125;        
+        model.S(h2o_idx,bio_idx) = -88.9125;      
+        model.S(p_idx,bio_idx) = 88.9125;
 end
 
