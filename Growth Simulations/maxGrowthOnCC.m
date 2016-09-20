@@ -73,6 +73,7 @@ if solution.f > 0
     [~,lac_idx] = intersect(model.rxns,'EX_cpd00159(e)');
     [~,h2_idx] = intersect(model.rxns,'EX_cpd11640(e)');
     [~,pyr_idx] = intersect(model.rxns,'EX_cpd00020(e)');
+    [~,por_idx] = intersect(model.rxns,'rxn05938');
     
     % Print fluxes for key reactions
     fprintf('\n\nBiomass flux: %f\n\n',solution.x(bio_idx))
@@ -83,6 +84,7 @@ if solution.f > 0
     fprintf('Lactate flux: %f\n',solution.x(lac_idx))
     fprintf('Hydrogen flux: %f\n',solution.x(h2_idx))
     fprintf('Pyruvate flux: %f\n\n',solution.x(pyr_idx))
+    fprintf('Pyruvate flux2: %f\n\n',solution.x(por_idx))
     
     % This is somewhat separate
     fprintf('Flux through Lactate Dehydrogenase: %f\n',solution.x(ldh_idx))
@@ -94,7 +96,7 @@ if solution.f > 0
     
     if plot_flag
         
-        plotCCFlux(model,solution,0.5);
+        plotCCFlux(model,solution,0.05);
     end
 end
 end
