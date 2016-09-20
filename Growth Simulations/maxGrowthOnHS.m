@@ -31,6 +31,9 @@ model = changeRxnBounds(model,'EX_cpd00084(e)',0,'l');
 model = changeRxnBounds(model,'EX_cpd00084(e)',1000,'u');
 % Pyruvate
 model = changeRxnBounds(model,'EX_cpd00020(e)',0,'b');
+% Pyrophosphate
+model = changeRxnBounds(model,'EX_cpd00012(e)',0,'l');
+model = changeRxnBounds(model,'EX_cpd00012(e)',0,'u');
 
 % Set bounds on the QMO reactions to activate fermentative version
 model = changeRxnBounds(model,'rxn11934B_CC',0,'b');
