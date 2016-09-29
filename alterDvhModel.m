@@ -60,3 +60,6 @@ model.rxns{idx} = 'EX_cpd00029(e)';
 [~,idx] = intersect(model.rxns,'rxn10929');
 model.rxns{idx} = 'EX_cpd00020(e)';
 
+% Alter the pyrophosphate exchange to turn it off
+model = changeRxnBounds(model,'EX_cpd00012(e)',0,'b');
+

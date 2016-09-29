@@ -60,13 +60,13 @@ switch growth_condition
         
     case 'CC'
         % Rename the biomass accordingly
-        model.rxns{bio_idx} = 'bio_DvH_89gam';
+        model.rxns{bio_idx} = 'bio_DvH_88gam';
         
         % Adjust the stoichiometric coefficients for ATP hydrolysis
-        model.S(h_idx,bio_idx) = 88.9125;       
-        model.S(atp_idx,bio_idx) = -88.9125;        
-        model.S(adp_idx,bio_idx) = 88.9125;        
-        model.S(h2o_idx,bio_idx) = -88.9125;      
-        model.S(p_idx,bio_idx) = 88.9125;
+        model.S(h_idx,bio_idx) = 87.7476;       
+        model.S(atp_idx,bio_idx) = -87.7476;        
+        model.S(adp_idx,bio_idx) = 87.7476;        
+        model.S(h2o_idx,bio_idx) = -87.7476;      
+        model.S(p_idx,bio_idx) = 87.7476;
 end
 

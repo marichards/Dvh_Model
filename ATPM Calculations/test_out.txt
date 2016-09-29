@@ -1,18 +1,19 @@
-rxn00225 	 ATPacetate phosphotransferase  	 -6.054903	 -1000.000000 	 1000.000000 
+rxn00225 	 ATPacetate phosphotransferase  	 -5.920436	 -1000.000000 	 1000.000000 
 rxn05602 	 L-lactate reversible transport via proton symport  	 8.900000	 -1000.000000 	 1000.000000 
-rxn00173 	 Acetyl-CoAorthophosphate acetyltransferase  	 6.054903	 -1000.000000 	 1000.000000 
-rxn00157 	 Acetyl-CoAformate C-acetyltransferase  	 -6.289798	 -1000.000000 	 0.000000 
+rxn00173 	 Acetyl-CoAorthophosphate acetyltransferase  	 5.920436	 -1000.000000 	 1000.000000 
+rxn00157 	 Acetyl-CoAformate C-acetyltransferase  	 -5.932494	 -1000.000000 	 0.000000 
 EX_cpd00159(e) 	 EX L-Lactate e  	 -8.900000	 -8.900000 	 -8.900000 
-EX_cpd00011(e) 	 EX CO2 e  	 6.015894	 -1000.000000 	 1000.000000 
-rxn14407 	 periplasmic hydrogenase  	 -1.618974	 -1000.000000 	 1000.000000 
-EX_cpd11640(e) 	 hydrogen exchange  	 8.827589	 0.000000 	 1000.000000 
-rxn05488 	 acetate transport in/out via proton symport  	 -6.057283	 -1000.000000 	 1000.000000 
-rxn14414 	 Formate Transport  	 -6.218722	 -1000.000000 	 1000.000000 
-rxn14416 	 rnf (Ferredoxin-NAD(+) reductase  	 5.372576	 -1000.000000 	 1000.000000 
+EX_cpd00011(e) 	 EX CO2 e  	 5.937333	 -1000.000000 	 1000.000000 
+rxn14407 	 periplasmic hydrogenase  	 -1.484504	 -1000.000000 	 1000.000000 
+rxn14408 	 hydrogen transport  	 -9.664991	 -1000.000000 	 1000.000000 
+EX_cpd11640(e) 	 hydrogen exchange  	 8.180487	 0.000000 	 1000.000000 
+rxn14410 	 Proton-pumping ferredoxin:hydrogenase  	 9.664991	 -1000.000000 	 1000.000000 
+rxn05488 	 acetate transport in/out via proton symport  	 -5.920523	 -1000.000000 	 1000.000000 
+rxn14414 	 Formate Transport  	 -5.937333	 -1000.000000 	 1000.000000 
+rxn14416 	 rnf (Ferredoxin-NAD(+) reductase  	 -18.567366	 -1000.000000 	 1000.000000 
 rxn08793A 	 L-Lactate dehydrogenase (menaquinone)  	 8.900000	 0.000000 	 1000.000000 
-rxn14412 	 QRC  	 -13.548381	 -1000.000000 	 1000.000000 
-rxn14418 	 Coo Hydrogenase  	 5.223282	 -1000.000000 	 1000.000000 
-rxn00371A 	 Fdh  	 6.218722	 0.000000 	 1000.000000 
-rxn10042 	 rxn10042  	 6.961102	 -1000.000000 	 1000.000000 
-rxn14413A 	 Hmc  	 13.040343	 -1000.000000 	 1000.000000 
-rxn11934B_CC 	 QMO (Co-culture)  	 -10.660515	 -1000.000000 	 1000.000000 
+rxn14417A 	  Hdr/Flox  	 12.238977	 -1000.000000 	 1000.000000 
+rxn14412 	 QRC  	 -6.679584	 -1000.000000 	 1000.000000 
+rxn00371A 	 Fdh  	 5.937333	 0.000000 	 1000.000000 
+rxn10042 	 rxn10042  	 0.373648	 -1000.000000 	 1000.000000 
+rxn11934B_CC 	 QMO (Co-culture)  	 -3.338977	 -1000.000000 	 1000.000000 

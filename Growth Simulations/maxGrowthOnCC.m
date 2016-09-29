@@ -33,8 +33,7 @@ model = changeRxnBounds(model,'EX_cpd00084(e)',1000,'u');
 % Pyruvate
 model = changeRxnBounds(model,'EX_cpd00020(e)',0,'b');
 % Pyrophosphate
-model = changeRxnBounds(model,'EX_cpd00012(e)',0,'l');
-model = changeRxnBounds(model,'EX_cpd00012(e)',0,'u');
+model = changeRxnBounds(model,'EX_cpd00012(e)',0,'b');
 
 % Set bounds on the QMO reactions to activate fermentative version
 model = changeRxnBounds(model,'rxn11934B_SR',0,'b');
@@ -67,7 +66,7 @@ solution = optimizeCbModel(model,[],'one',false);
 
 % Retrieve key reaction indices
 if solution.f > 0
-    [~,bio_idx] = intersect(model.rxns,'bio_DvH_89gam');
+    [~,bio_idx] = intersect(model.rxns,'bio_DvH_88gam');
     [~,h2s_idx] = intersect(model.rxns,'EX_cpd00239(e)');
     [~,so4_idx] = intersect(model.rxns,'EX_cpd00048(e)');
     [~,ldh_idx] = intersect(model.rxns,'rxn08793A');
