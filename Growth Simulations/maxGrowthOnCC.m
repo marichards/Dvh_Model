@@ -1,4 +1,4 @@
-function [solution,model] = maxGrowthOnCC(model,plot_flag)
+function [solution,model] = maxGrowthOnCC(model,plot_flag,print_flag)
 
 % This function takes in the Desulfovibrio vulgaris model and simulates
 % growth on HS media
@@ -11,6 +11,11 @@ function [solution,model] = maxGrowthOnCC(model,plot_flag)
 % model: the D. vulgaris model configured to grow on HS media
 %
 % Written by Matthew Richards 2016/08/01
+
+% Check for print flag and set default = true
+if nargin < 3
+    print_flag = 1;
+end
 
 % Change media conditions to match HS media
 % Lactate
@@ -77,19 +82,21 @@ if solution.f > 0
     [~,pyr_idx] = intersect(model.rxns,'EX_cpd00020(e)');
     [~,por_idx] = intersect(model.rxns,'rxn05938');
     
-    % Print fluxes for key reactions
-    fprintf('\n\nBiomass flux: %f\n\n',solution.x(bio_idx))
-    fprintf('H2S flux: %f\n',solution.x(h2s_idx))
-    fprintf('SO4 flux: %f\n',solution.x(so4_idx))
-    fprintf('Acetate flux: %f\n',solution.x(ac_idx))
-    fprintf('Formate flux: %f\n',solution.x(for_idx))
-    fprintf('Lactate flux: %f\n',solution.x(lac_idx))
-    fprintf('Hydrogen flux: %f\n',solution.x(h2_idx))
-    fprintf('Pyruvate flux: %f\n\n',solution.x(pyr_idx))
-    fprintf('Pyruvate flux2: %f\n\n',solution.x(por_idx))
-    
-    % This is somewhat separate
-    fprintf('Flux through Lactate Dehydrogenase: %f\n',solution.x(ldh_idx))
+    if print_flag
+        % Print fluxes for key reactions
+        fprintf('\n\nBiomass flux: %f\n\n',solution.x(bio_idx))
+        fprintf('H2S flux: %f\n',solution.x(h2s_idx))
+        fprintf('SO4 flux: %f\n',solution.x(so4_idx))
+        fprintf('Acetate flux: %f\n',solution.x(ac_idx))
+        fprintf('Formate flux: %f\n',solution.x(for_idx))
+        fprintf('Lactate flux: %f\n',solution.x(lac_idx))
+        fprintf('Hydrogen flux: %f\n',solution.x(h2_idx))
+        fprintf('Pyruvate flux: %f\n\n',solution.x(pyr_idx))
+        fprintf('Pyruvate flux2: %f\n\n',solution.x(por_idx))
+        
+        % This is somewhat separate
+        fprintf('Flux through Lactate Dehydrogenase: %f\n',solution.x(ldh_idx))
+    end
     
     % Plot the solution
     if nargin < 2
