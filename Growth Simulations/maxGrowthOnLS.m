@@ -59,7 +59,7 @@ model = changeRxnBounds(model,'rxn14410',1000,'u');
 model = changeRxnBounds(model,'rxn14419',-1000,'l');
 model = changeRxnBounds(model,'rxn14419',1000,'u');
 
-% Alter biomass to the proper GAM value, which is 85
+% Alter biomass to the proper GAM value, which is 125
 model = setModelGAM(model,'LS');
 
 % Simulate growth while minimizing the sum of fluxes and not allowing loops
