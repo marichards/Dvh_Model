@@ -26,7 +26,7 @@ model = changeRxnBounds(model,'EX_cpd00048(e)',0,'u');
 % Hydrogen
 model = changeRxnBounds(model,'EX_cpd11640(e)',-41.7,'b');
 % Acetate
-model = changeRxnBounds(model,'EX_cpd00029(e)',-100,'l');
+model = changeRxnBounds(model,'EX_cpd00029(e)',-1000,'l');
 model = changeRxnBounds(model,'EX_cpd00029(e)',0,'u');
 % H2S
 model = changeRxnBounds(model,'EX_cpd00239(e)',0,'l');

@@ -46,7 +46,7 @@ ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 idx = idx + 1;
 
 ldh_only = alterLDH(ls_model);
-[gam,ngam] = findDvhATPM(ldh_only,'LS',ls_growth_rates,ls_uptake,false);
+[gam,ngam] = findDvhATPM(ldh_only,'LS',[ls_growth_rates,0.06],[ls_uptake,12.4],false);
 ldh_only = changeDvhATPM(ldh_only,gam,ngam);
 solution = optimizeCbModel(ldh_only,[],'one',false);
 growth_rates(idx) = solution.f; 
@@ -55,7 +55,7 @@ ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 idx = idx + 1;
 
 hdr_only = alterHDR(ls_model);
-[gam,ngam] = findDvhATPM(hdr_only,'LS',ls_growth_rates,ls_uptake,false);
+[gam,ngam] = findDvhATPM(hdr_only,'LS',[ls_growth_rates,0.06],[ls_uptake,12.4],false);
 hdr_only = changeDvhATPM(hdr_only,gam,ngam);
 solution = optimizeCbModel(hdr_only,[],'one',false);
 growth_rates(idx) = solution.f; 
@@ -73,7 +73,7 @@ conditions{idx} = 'LS_QMO';
 idx = idx + 1;
 
 hdr_ldh = alterHDR(alterLDH(ls_model));
-[gam,ngam] = findDvhATPM(hdr_ldh,'LS',ls_growth_rates,ls_uptake,false);
+[gam,ngam] = findDvhATPM(hdr_ldh,'LS',[ls_growth_rates,0.06],[ls_uptake,12.4],false);
 hdr_ldh = changeDvhATPM(hdr_ldh,gam,ngam);
 solution = optimizeCbModel(hdr_ldh,[],'one',false);
 growth_rates(idx) = solution.f; 
@@ -100,7 +100,7 @@ conditions{idx} = 'LS_QMO_HDR';
 idx = idx + 1;
 
 qmo_hdr_ldh = alterQMO(alterHDR(alterLDH(ls_model)));
-[gam,ngam] = findDvhATPM(qmo_hdr_ldh,'LS',ls_growth_rates,ls_uptake,false);
+[gam,ngam] = findDvhATPM(qmo_hdr_ldh,'LS',[ls_growth_rates,0.06],[ls_uptake,12.4],false);
 qmo_hdr_ldh = changeDvhATPM(qmo_hdr_ldh,gam,ngam);
 solution = optimizeCbModel(qmo_hdr_ldh,[],'one',false);
 growth_rates(idx) = solution.f; 
