@@ -34,8 +34,11 @@ hs_uptake = [31.836,35.114,38.393,41.672];
 ps_growth_rates = [0.03,0.04,0.05,0.06];
 ps_uptake = [4.256,4.742,5.227,5.712];
 
-ls_growth_rates = [0.03,0.04,0.05];
-ls_uptake = [8.4,9.733,11.0667];
+ls_growth_rates = [0.03,0.04,0.05,0.060001];
+ls_uptake = [8.4,9.733,11.0667,12.4];
+
+% Create a wait bar
+my_wait = waitbar(0,'Simulation in Progress...');
 
 % Run the 8 LS Simulations, print, and store them
 % Print out the lactate to sulfate ratio
@@ -43,24 +46,27 @@ ls_uptake = [8.4,9.733,11.0667];
 growth_rates(idx) = solution.f; 
 conditions{idx} = 'LS_WT';
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
+waitbar(idx/16);
 idx = idx + 1;
 
 ldh_only = alterLDH(ls_model);
-[gam,ngam] = findDvhATPM(ldh_only,'LS',[ls_growth_rates,0.06],[ls_uptake,12.4],false);
+[gam,ngam] = findDvhATPM(ldh_only,'LS',ls_growth_rates,ls_uptake,false);
 ldh_only = changeDvhATPM(ldh_only,gam,ngam);
 solution = optimizeCbModel(ldh_only,[],'one',false);
 growth_rates(idx) = solution.f; 
 conditions{idx} = 'LS_LDH';
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
+waitbar(idx/16);
 idx = idx + 1;
 
 hdr_only = alterHDR(ls_model);
-[gam,ngam] = findDvhATPM(hdr_only,'LS',[ls_growth_rates,0.06],[ls_uptake,12.4],false);
+[gam,ngam] = findDvhATPM(hdr_only,'LS',ls_growth_rates,ls_uptake,false);
 hdr_only = changeDvhATPM(hdr_only,gam,ngam);
 solution = optimizeCbModel(hdr_only,[],'one',false);
 growth_rates(idx) = solution.f; 
 conditions{idx} = 'LS_HDR';
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
+waitbar(idx/16);
 idx = idx + 1;
 
 qmo_only = alterQMO(ls_model);
@@ -70,15 +76,17 @@ solution = optimizeCbModel(qmo_only,[],'one',false);
 growth_rates(idx) = solution.f;
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 conditions{idx} = 'LS_QMO';
+waitbar(idx/16);
 idx = idx + 1;
 
 hdr_ldh = alterHDR(alterLDH(ls_model));
-[gam,ngam] = findDvhATPM(hdr_ldh,'LS',[ls_growth_rates,0.06],[ls_uptake,12.4],false);
+[gam,ngam] = findDvhATPM(hdr_ldh,'LS',ls_growth_rates,ls_uptake,false);
 hdr_ldh = changeDvhATPM(hdr_ldh,gam,ngam);
 solution = optimizeCbModel(hdr_ldh,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 conditions{idx} = 'LS_HDR_LDH';
+waitbar(idx/16);
 idx = idx + 1;
 
 qmo_ldh = alterQMO(alterLDH(ls_model));
@@ -88,6 +96,7 @@ solution = optimizeCbModel(qmo_ldh,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 conditions{idx} = 'LS_QMO_LDH';
+waitbar(idx/16);
 idx = idx + 1;
 
 qmo_hdr = alterQMO(alterHDR(ls_model));
@@ -97,15 +106,17 @@ solution = optimizeCbModel(qmo_hdr,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 conditions{idx} = 'LS_QMO_HDR';
+waitbar(idx/16);
 idx = idx + 1;
 
 qmo_hdr_ldh = alterQMO(alterHDR(alterLDH(ls_model)));
-[gam,ngam] = findDvhATPM(qmo_hdr_ldh,'LS',[ls_growth_rates,0.06],[ls_uptake,12.4],false);
+[gam,ngam] = findDvhATPM(qmo_hdr_ldh,'LS',ls_growth_rates,ls_uptake,false);
 qmo_hdr_ldh = changeDvhATPM(qmo_hdr_ldh,gam,ngam);
 solution = optimizeCbModel(qmo_hdr_ldh,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 conditions{idx} = 'LS_QMO_HDR_LDH';
+waitbar(idx/16);
 idx = idx + 1;
 
 % Run the 4 CC Simulations, print, and store them
@@ -114,6 +125,7 @@ idx = idx + 1;
 growth_rates(idx) = solution.f; 
 ratios(idx) = -solution.x(lac_idx)/solution.x(ac_idx);
 conditions{idx} = 'CC_WT';
+waitbar(idx/16);
 idx = idx + 1;
 
 ldh_only = alterLDH(cc_model);
@@ -123,6 +135,7 @@ solution = optimizeCbModel(ldh_only,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = -solution.x(lac_idx)/solution.x(ac_idx);
 conditions{idx} = 'CC_LDH';
+waitbar(idx/16);
 idx = idx + 1;
 
 hdr_only = alterHDR(cc_model);
@@ -132,6 +145,7 @@ solution = optimizeCbModel(hdr_only,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = -solution.x(lac_idx)/solution.x(ac_idx);
 conditions{idx} = 'CC_HDR';
+waitbar(idx/16);
 idx = idx + 1;
 
 hdr_ldh = alterHDR(alterLDH(cc_model));
@@ -141,6 +155,7 @@ solution = optimizeCbModel(hdr_ldh,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = -solution.x(lac_idx)/solution.x(ac_idx);
 conditions{idx} = 'CC_HDR_LDH';
+waitbar(idx/16);
 idx = idx + 1;
 
 % Run the 4 HS Simulations, print, and store them
@@ -149,6 +164,7 @@ idx = idx + 1;
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(h2_idx)/solution.x(so4_idx);
 conditions{idx} = 'HS_WT';
+waitbar(idx/16);
 idx = idx + 1;
 
 hdr_only = alterHDR(hs_model);
@@ -158,6 +174,7 @@ solution = optimizeCbModel(hdr_only,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(h2_idx)/solution.x(so4_idx);
 conditions{idx} = 'HS_HDR';
+waitbar(idx/16);
 idx = idx + 1;
 
 qmo_only = alterQMO(hs_model);
@@ -167,6 +184,7 @@ solution = optimizeCbModel(qmo_only,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(h2_idx)/solution.x(so4_idx);
 conditions{idx} = 'HS_QMO';
+waitbar(idx/16);
 idx = idx + 1;
 
 qmo_hdr = alterQMO(alterHDR(hs_model));
@@ -176,6 +194,7 @@ solution = optimizeCbModel(qmo_hdr,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(h2_idx)/solution.x(so4_idx);
 conditions{idx} = 'HS_QMO_HDR';
+waitbar(idx/16);
 idx = idx + 1;
 
 % Run the 4 PS Simulations, print, and store them
@@ -184,6 +203,7 @@ idx = idx + 1;
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(pyr_idx)/solution.x(so4_idx);
 conditions{idx} = 'PS_WT';
+waitbar(idx/16);
 idx = idx + 1;
 
 hdr_only = alterHDR(ps_model);
@@ -193,6 +213,7 @@ solution = optimizeCbModel(hdr_only,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(pyr_idx)/solution.x(so4_idx);
 conditions{idx} = 'PS_HDR';
+waitbar(idx/16);
 idx = idx + 1;
 
 qmo_only = alterQMO(ps_model);
@@ -202,6 +223,7 @@ solution = optimizeCbModel(qmo_only,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(pyr_idx)/solution.x(so4_idx);
 conditions{idx} = 'PS_QMO';
+waitbar(idx/16);
 idx = idx + 1;
 
 qmo_hdr = alterQMO(alterHDR(ps_model));
@@ -211,6 +233,7 @@ solution = optimizeCbModel(qmo_hdr,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(pyr_idx)/solution.x(so4_idx);
 conditions{idx} = 'PS_QMO_HDR';
+waitbar(idx/16);
 
 % Print the final results
 fprintf('\n\nCondition\t\tGrowth_Rate\t\tKey Ratio\n')
