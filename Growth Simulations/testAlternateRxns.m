@@ -1,4 +1,4 @@
-function [growth_rates,conditions,ratios] = testAlternateRxns(model)
+function [growth_rates,conditions,ratios,ngams,gams] = testAlternateRxns(model)
 
 % Using the D. vulgaris model, test alternate stoichiometries for electron
 % carriers in the QMO, Hdr-Flx, and Ldh reactions
@@ -15,6 +15,8 @@ function [growth_rates,conditions,ratios] = testAlternateRxns(model)
 growth_rates = zeros(20,1);
 conditions = cell(20,1);
 ratios = zeros(20,1);
+ngams = zeros(20,1);
+gams = zeros(20,1);
 idx = 1;
 
 % Find the different ratio indices
@@ -38,7 +40,7 @@ ls_growth_rates = [0.03,0.04,0.05,0.060001];
 ls_uptake = [8.4,9.733,11.0667,12.4];
 
 % Create a wait bar
-my_wait = waitbar(0,'Simulation in Progress...');
+waitbar(0,'Simulation in Progress...');
 
 % Run the 8 LS Simulations, print, and store them
 % Print out the lactate to sulfate ratio
@@ -57,6 +59,7 @@ growth_rates(idx) = solution.f;
 conditions{idx} = 'LS_LDH';
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 hdr_only = alterHDR(ls_model);
@@ -67,6 +70,7 @@ growth_rates(idx) = solution.f;
 conditions{idx} = 'LS_HDR';
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 qmo_only = alterQMO(ls_model);
@@ -77,6 +81,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 conditions{idx} = 'LS_QMO';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 hdr_ldh = alterHDR(alterLDH(ls_model));
@@ -87,6 +92,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 conditions{idx} = 'LS_HDR_LDH';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 qmo_ldh = alterQMO(alterLDH(ls_model));
@@ -97,6 +103,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 conditions{idx} = 'LS_QMO_LDH';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 qmo_hdr = alterQMO(alterHDR(ls_model));
@@ -107,6 +114,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 conditions{idx} = 'LS_QMO_HDR';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 qmo_hdr_ldh = alterQMO(alterHDR(alterLDH(ls_model)));
@@ -117,6 +125,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = solution.x(lac_idx)/solution.x(so4_idx);
 conditions{idx} = 'LS_QMO_HDR_LDH';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 % Run the 4 CC Simulations, print, and store them
@@ -136,6 +145,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = -solution.x(lac_idx)/solution.x(ac_idx);
 conditions{idx} = 'CC_LDH';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 hdr_only = alterHDR(cc_model);
@@ -146,6 +156,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = -solution.x(lac_idx)/solution.x(ac_idx);
 conditions{idx} = 'CC_HDR';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 hdr_ldh = alterHDR(alterLDH(cc_model));
@@ -156,6 +167,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = -solution.x(lac_idx)/solution.x(ac_idx);
 conditions{idx} = 'CC_HDR_LDH';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 % Run the 4 HS Simulations, print, and store them
@@ -175,6 +187,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = solution.x(h2_idx)/solution.x(so4_idx);
 conditions{idx} = 'HS_HDR';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 qmo_only = alterQMO(hs_model);
@@ -185,6 +198,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = solution.x(h2_idx)/solution.x(so4_idx);
 conditions{idx} = 'HS_QMO';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 qmo_hdr = alterQMO(alterHDR(hs_model));
@@ -195,6 +209,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = solution.x(h2_idx)/solution.x(so4_idx);
 conditions{idx} = 'HS_QMO_HDR';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 % Run the 4 PS Simulations, print, and store them
@@ -214,6 +229,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = solution.x(pyr_idx)/solution.x(so4_idx);
 conditions{idx} = 'PS_HDR';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 qmo_only = alterQMO(ps_model);
@@ -224,6 +240,7 @@ growth_rates(idx) = solution.f;
 ratios(idx) = solution.x(pyr_idx)/solution.x(so4_idx);
 conditions{idx} = 'PS_QMO';
 waitbar(idx/16);
+ngams(idx) = ngam; gams(idx) = gam;
 idx = idx + 1;
 
 qmo_hdr = alterQMO(alterHDR(ps_model));
@@ -233,12 +250,14 @@ solution = optimizeCbModel(qmo_hdr,[],'one',false);
 growth_rates(idx) = solution.f; 
 ratios(idx) = solution.x(pyr_idx)/solution.x(so4_idx);
 conditions{idx} = 'PS_QMO_HDR';
+ngams(idx) = ngam; gams(idx) = gam;
 waitbar(idx/16);
 
 % Print the final results
-fprintf('\n\nCondition\t\tGrowth_Rate\t\tKey Ratio\n')
+fprintf('\n\nCondition\t\tGrowth_Rate\t\tKey Ratio\t\tGAM\t\tNGAM\n')
 for i = 1:length(growth_rates)
-    fprintf('%s\t\t%0.3f\t\t%0.3f\n',conditions{i},growth_rates(i),ratios(i))
+    fprintf('%s\t\t%0.3f\t\t%0.3f\t\t%0.3f\t\t%0.3f\n',...
+        conditions{i},growth_rates(i),ratios(i),gams(i),ngams(i))
 end
 
 end
