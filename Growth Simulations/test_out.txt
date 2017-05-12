@@ -1,25 +1,22 @@
-rxn00225 	 ATPacetate phosphotransferase  	 -11.552909	 -1000.000000 	 1000.000000 
-rxn05602 	 L-lactate reversible transport via proton symport  	 12.400000	 -1000.000000 	 1000.000000 
-rxn00173 	 Acetyl-CoAorthophosphate acetyltransferase  	 11.552909	 -1000.000000 	 1000.000000 
-rxn00157 	 Acetyl-CoAformate C-acetyltransferase  	 -11.797982	 -1000.000000 	 0.000000 
-rxn00379 	 ATPsulfate adenylyltransferase  	 4.621189	 -1000.000000 	 1000.000000 
-EX_cpd00159(e) 	 EX L-Lactate e  	 -12.400000	 -12.400000 	 -12.400000 
-EX_cpd00048(e) 	 EX Sulfate e  	 -4.621426	 -1000.000000 	 0.000000 
-EX_cpd00011(e) 	 EX CO2 e  	 11.744003	 -1000.000000 	 1000.000000 
-rxn14407 	 periplasmic hydrogenase  	 -9.510245	 -1000.000000 	 1000.000000 
-rxn14408 	 hydrogen transport  	 -9.510245	 -1000.000000 	 1000.000000 
-rxn14410 	 Proton-pumping ferredoxin:hydrogenase  	 9.510245	 -1000.000000 	 1000.000000 
-rxn05488 	 acetate transport in/out via proton symport  	 -11.570008	 -1000.000000 	 1000.000000 
-rxn14414 	 Formate Transport  	 -11.835583	 -1000.000000 	 1000.000000 
-rxn14415 	 H2S transport  	 4.606424	 0.000000 	 1000.000000 
-EX_cpd00239(e) 	 H2S Exchange  	 4.606424	 0.000000 	 1000.000000 
-rxn14416 	 rnf (Ferredoxin-NAD(+) reductase  	 -24.657231	 -1000.000000 	 1000.000000 
-rxn08793A 	 L-Lactate dehydrogenase (menaquinone)  	 12.400000	 0.000000 	 1000.000000 
-rxn14417A 	  Hdr/Flox  	 12.772998	 -1000.000000 	 1000.000000 
-rxn14412 	 QRC  	 -16.590705	 -1000.000000 	 0.000000 
-rxn05651A 	 sulfate transport in via proton symport  	 4.621426	 -1000.000000 	 1000.000000 
-rxn00371A 	 Fdh  	 11.835583	 0.000000 	 1000.000000 
-rxn14404 	 DsrMJKOP_mql  	 14.236565	 0.000000 	 1000.000000 
-rxn10042 	 rxn10042  	 12.644178	 -1000.000000 	 1000.000000 
-rxn14403 	 Sulfite Reductase (DsrABC)  	 4.621189	 -1000.000000 	 1000.000000 
-rxn11934B_SR 	 QMO (Sulfate Reducing)  	 2.310594	 -1000.000000 	 1000.000000 
+rxn00225 	 ATPacetate phosphotransferase  	 0.848286	 -1000.000000 	 1000.000000 
+rxn00173 	 Acetyl-CoAorthophosphate acetyltransferase  	 -0.848286	 -1000.000000 	 1000.000000 
+rxn00157 	 Acetyl-CoAformate C-acetyltransferase  	 -20.318618	 -1000.000000 	 0.000000 
+rxn00379 	 ATPsulfate adenylyltransferase  	 8.000711	 -1000.000000 	 1000.000000 
+rxn05938 	 Pyruvate synthase  	 20.921485	 -1000.000000 	 1000.000000 
+EX_cpd00048(e) 	 EX Sulfate e  	 -8.000948	 -1000.000000 	 0.000000 
+EX_cpd00011(e) 	 EX CO2 e  	 -0.656922	 -1000.000000 	 1000.000000 
+rxn14407 	 periplasmic hydrogenase  	 -16.269667	 -1000.000000 	 0.000000 
+rxn14408 	 hydrogen transport  	 25.430333	 -1000.000000 	 1000.000000 
+EX_cpd11640(e) 	 hydrogen exchange  	 -41.700000	 -41.700000 	 -41.700000 
+rxn14410 	 Proton-pumping ferredoxin:hydrogenase  	 -25.430333	 -1000.000000 	 1000.000000 
+rxn05488 	 acetate transport in/out via proton symport  	 0.831163	 -1000.000000 	 1000.000000 
+rxn14414 	 Formate Transport  	 -20.356272	 -1000.000000 	 1000.000000 
+rxn14415 	 H2S transport  	 7.985925	 0.000000 	 1000.000000 
+EX_cpd00239(e) 	 H2S Exchange  	 7.985925	 0.000000 	 1000.000000 
+rxn14412 	 QRC  	 -28.491105	 -1000.000000 	 0.000000 
+rxn05651A 	 sulfate transport in via proton symport  	 8.000948	 -1000.000000 	 1000.000000 
+rxn00371A 	 Fdh  	 20.356272	 0.000000 	 1000.000000 
+rxn14404 	 DsrMJKOP_mql  	 24.447142	 0.000000 	 1000.000000 
+rxn10042 	 rxn10042  	 21.973516	 -1000.000000 	 1000.000000 
+rxn14403 	 Sulfite Reductase (DsrABC)  	 8.000711	 -1000.000000 	 1000.000000 
+rxn11934B_SR 	 QMO (Sulfate Reducing)  	 4.000356	 -1000.000000 	 1000.000000 

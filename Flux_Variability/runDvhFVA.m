@@ -45,13 +45,18 @@ rxns = {'EX_cpd00047(e)';...
 'rxn11934B_SR';...
 'rxn11934B_CC'};
 
+minFlux = zeros(length(rxns),1);
+maxFlux = zeros(length(rxns),1);
+
 % Make it into a loop for diagnosis purposes
 for i = 1:length(rxns)
     fprintf('Testing %s\n',rxns{i})
-    [minFlux,maxFlux] = fluxVariability(model,93,{},rxns(i),false,false);
-    fprintf('%s\t%f\t%f\n',rxns{i},minFlux*1000,maxFlux*1000)
+    [minFlux(i),maxFlux(i)] = fluxVariability(model,93,{},rxns(i),false,false);
+    fprintf('%s\t%f\t%f\n',rxns{i},minFlux(i)*1000,maxFlux(i)*1000)
 end
     
+minFlux = minFlux*1000;
+maxFlux = maxFlux*1000;
 % % Run the FVA at 95% of max growth
 % [minFlux,maxFlux] = fluxVariability(model,95,{},rxns,false,false);
 % 
