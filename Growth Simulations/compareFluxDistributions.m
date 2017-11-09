@@ -9,6 +9,7 @@ function [rxns,flux1,flux2] = compareFluxDistributions(model,solution1,solution2
 % solution1: a flux distribution calculated using "model"
 % solution2: a flux distribution calculated using "model" and different
 % from solution1
+% threshold: a decimal indicating the fraction of flux considered a "major" change (default = 1)
 %
 % Written by Matthew Richards 10/3/2016
 
