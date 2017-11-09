@@ -2,7 +2,6 @@ function findAllATPM(model)
 
 
 % Set all the growth rate and uptake rate vectors
-% I fudged these!
 cc_growth_rates = [0.03,0.04,0.05,0.06];
 cc_uptake = [5.9,6.9,7.9,8.9];
 
@@ -12,6 +11,7 @@ hs_uptake = [31.836,35.114,38.393,41.672];
 ps_growth_rates = [0.03,0.04,0.05,0.06];
 ps_uptake = [4.256,4.742,5.227,5.712];
 
+% Add a small number to LS to allow it to converge, otherwise it creates nonsensical results
 ls_growth_rates = [0.03,0.04,0.05,0.060001];
 ls_uptake = [8.4,9.733,11.0667,12.4];
 
