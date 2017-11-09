@@ -45,21 +45,21 @@ The following short tutorial demonstrates how to simulate iJF744 on both HS medi
 
 ## Simulation of iJF744 on different media
 
-** 1. Load the latest model **
+**1. Load the latest model**
 
 ```
 % This assumes you are in the root directory of the repository
 load('2016_09_29_model.mat')
 ```
 
-** 2. Initialize the Cobra Toolbox **
+**2. Initialize the Cobra Toolbox**
 
 ```
 % This is a standard step to initialize the solver
 initCobraToolbox
 ```
 
-** 3a. Run the HS Growth Simulation Script - solution only **
+**3a. Run the HS Growth Simulation Script - solution only **
 
 Either navigate to the Growth Simulations directory OR add that directory to your path. 
 
@@ -70,7 +70,7 @@ solution = maxGrowthOnHS(model, false, true)
 
 Note that we could have returned the model here as well, but there is no reason to do so because the model we loaded is already configured to grow on HS media. 
 
-** 3b. Run the CC Growth Simulation Script - return all output **
+**3b. Run the CC Growth Simulation Script - return all output **
 
 First, navigate to the Growth Simulation directory (the perl scripts for making flux plots are in this directory), then run the script to return everything:
 
