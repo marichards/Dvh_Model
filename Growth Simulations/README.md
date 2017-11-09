@@ -39,6 +39,10 @@ Our results from testing reaction essentiality with no loops are found in the `r
 
 The full *in silico* media for a given growth condition consists of all exchange reactions with negative lower bounds; that is, those reactions that allow a metabolite to be taken up into the model. For convenience, we collected these reactions for each of the 4 growth media and stored them in `full_insilico_media.xlsx` as a reference. 
 
+## `setModelGAM.m`
+
+A function used within the growth simulations to change a model's maintenance parameters. It takes in the model and the media condition, then changes the values in accordance with those found using scripts in the `ATPM Calculations` directory. 
+
 ## `compareFluxDistributions.m`
 
 A script for taking two flux distributions and finding major differences. Useful for evaluating what has changed when comparing two separate simulations. 
