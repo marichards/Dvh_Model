@@ -79,4 +79,4 @@ First, navigate to the Growth Simulation directory (the perl scripts for making 
 [solution, cc_model] = maxGrowthOnCC(model, true, true)
 ```
 
-Unlike the previous simulation, we returned the model, which differs from the one we started with in that it is configured to grow under syntrophic (CC media) conditions. 
+Unlike the previous simulation, we returned the model, which differs from the one we started with in that it is configured to grow under syntrophic (CC media) conditions. We also now return a figure entitled `CC_solution.svg`, which plots the major fluxes from the solution. This plot is appropriately titled for a given media condition and by default, it appears in the working directory. 
